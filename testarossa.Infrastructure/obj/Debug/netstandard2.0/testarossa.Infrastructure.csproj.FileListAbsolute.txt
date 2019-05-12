@@ -1,0 +1,9 @@
+D:\Programowanie\Csharp\testarossa\testarossa\testarossa.Infrastructure\bin\Debug\netstandard2.0\testarossa.Infrastructure.deps.json
+D:\Programowanie\Csharp\testarossa\testarossa\testarossa.Infrastructure\bin\Debug\netstandard2.0\testarossa.Infrastructure.dll
+D:\Programowanie\Csharp\testarossa\testarossa\testarossa.Infrastructure\bin\Debug\netstandard2.0\testarossa.Infrastructure.pdb
+D:\Programowanie\Csharp\testarossa\testarossa\testarossa.Infrastructure\obj\Debug\netstandard2.0\testarossa.Infrastructure.csprojAssemblyReference.cache
+D:\Programowanie\Csharp\testarossa\testarossa\testarossa.Infrastructure\obj\Debug\netstandard2.0\testarossa.Infrastructure.csproj.CoreCompileInputs.cache
+D:\Programowanie\Csharp\testarossa\testarossa\testarossa.Infrastructure\obj\Debug\netstandard2.0\testarossa.Infrastructure.AssemblyInfoInputs.cache
+D:\Programowanie\Csharp\testarossa\testarossa\testarossa.Infrastructure\obj\Debug\netstandard2.0\testarossa.Infrastructure.AssemblyInfo.cs
+D:\Programowanie\Csharp\testarossa\testarossa\testarossa.Infrastructure\obj\Debug\netstandard2.0\testarossa.Infrastructure.dll
+D:\Programowanie\Csharp\testarossa\testarossa\testarossa.Infrastructure\obj\Debug\netstandard2.0\testarossa.Infrastructure.pdb
