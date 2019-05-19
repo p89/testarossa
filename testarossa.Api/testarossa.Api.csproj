@@ -10,9 +10,4 @@
     <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\testarossa.Core\testarossa.Core.csproj" />
-    <ProjectReference Include="..\testarossa.Infrastructure\testarossa.Infrastructure.csproj" />
-  </ItemGroup>
-
 </Project>
