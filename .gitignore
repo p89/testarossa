@@ -8,3 +8,5 @@
 /testarossa.IntegrationTests/debug/
 /testarossa.Tests/bin/
 /testarossa.Tests/debug/
+*.json
+*.config
