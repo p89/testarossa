@@ -1,0 +1,10 @@
+/testarossa.Api/bin/
+/testarossa.Api/debug/
+/testarossa.Core/bin/
+/testarossa.Core/debug/
+/testarossa.Infrastructure/bin/
+/testarossa.Infrastructure/debug/
+/testarossa.IntegrationTests/bin/
+/testarossa.IntegrationTests/debug/
+/testarossa.Tests/bin/
+/testarossa.Tests/debug/
