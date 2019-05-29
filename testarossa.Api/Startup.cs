@@ -10,6 +10,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using testarossa.Core.Repositories;
+using testarossa.Infrastructure.Repositories;
+using testarossa.Infrastructure.Services;
 
 namespace testarossa.Api
 {
@@ -26,6 +29,8 @@ namespace testarossa.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserRepository, InMemoryUserRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
