@@ -16,6 +16,9 @@ namespace testarossa.Infrastructure.Commands
             if (command == null)
                 throw new ArgumentNullException(nameof(command),
                 $"Command {typeof(T).Name} cannot be null.");
+
+            var handler = _componenContext.Resolve<ICommandHandler<T>>();
+            await handler.Handle(command);
         }
     }
 }

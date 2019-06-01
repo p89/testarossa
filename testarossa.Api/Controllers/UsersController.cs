@@ -11,16 +11,13 @@ using testarossa.Infrastructure.Services;
 
 namespace testarossa.Api.Controllers
 {
-    [Route("[controller]")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController : ApiControllerBase
     {
         private readonly IUserService _userService;
-        private readonly ICommandDispatcher _commandDispatcher;
-        public UsersController(IUserService userService, ICommandDispatcher commandDispatcher)
+        public UsersController(IUserService userService, ICommandDispatcher commandDispatcher) : base(commandDispatcher)
         {
             _userService = userService;
-            _commandDispatcher = commandDispatcher;
         }
 
         // GET api/values/5
@@ -34,8 +31,9 @@ namespace testarossa.Api.Controllers
         public async Task<IActionResult> Interia([FromBody] CreateUser command)
         {
             await _commandDispatcher.Dispatch(command);
-            //_userService.Register(command.Email, command.Username, command.Password);
             return Ok("O Boziu");
         }
+
+        
     }
 }
