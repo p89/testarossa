@@ -1,4 +1,6 @@
 using System;
+using System.Threading.Tasks;
+using AutoMapper;
 using testarossa.Core.Domain;
 using testarossa.Core.Repositories;
 using testarossa.Infrastructure.DTO;
@@ -8,32 +10,31 @@ namespace testarossa.Infrastructure.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
-        public UserService(IUserRepository userRepository) 
+        private readonly IMapper _mapper;
+        public UserService(IUserRepository userRepository, IMapper mapper) 
         {
             _userRepository = userRepository;
+            _mapper = mapper;
         }
 
-        public UserDTO Get(string email)
+        public async Task<UserDTO> Get(string email)
         {
-            var user = _userRepository.Get(email);
+            var user = await _userRepository.Get(email);
 
-            return new UserDTO 
-            {
-                Id = user.Id,
-                UserName = user.UserName,
-                Email = user.Email,
-                FullName = user.FullName
-            };
+            return _mapper.Map<User,UserDTO>(user);
         }
 
-        public void Register(string email, string username, string password)
+        public async Task Register(string email, string username, string password)
         {
-            var user = _userRepository.Get(email);
+            var user = await _userRepository.Get(email);
             if (user != null)
                 throw new Exception($"User with email: '{email}' already exists.");
             var salt = Guid.NewGuid().ToString("N");    
             user = new User(email, username, password, salt);
-            _userRepository.Add(user);
+            await _userRepository.Add(user);
+            await Task.CompletedTask;
         }
+
+        
     }
 }

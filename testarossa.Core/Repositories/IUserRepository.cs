@@ -1,16 +1,17 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using testarossa.Core.Domain;
 
 namespace testarossa.Core.Repositories
 {
     public interface IUserRepository
     {
-         User Get(Guid guid);
-         User Get(string email);
-         IEnumerable<User>GetAll();
-         void Add(User user);
-         void Update(User user);
-         void Remove(Guid id);
+         Task<User> Get(Guid guid);
+         Task<User> Get(string email);
+         Task<IEnumerable<User>>GetAll();
+         Task Add(User user);
+         Task Update(User user);
+         Task Remove(Guid id);
     }
 }

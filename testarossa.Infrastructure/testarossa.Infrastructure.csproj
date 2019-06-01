@@ -7,4 +7,9 @@
   <ItemGroup>
     <ProjectReference Include="..\testarossa.Core\testarossa.Core.csproj" />
   </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoFac" version="4.9.2"/>
+    <PackageReference Include="AutoMapper" version="6.0.2"/>
+  </ItemGroup>
 </Project>
