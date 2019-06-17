@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using testarossa.Infrastructure;
@@ -22,16 +23,20 @@ namespace testarossa.Api.Controllers
 
         // GET api/values/5
         [HttpGet("{email}")]
-        public async Task<UserDTO> Get(string email)
+        public async Task<IActionResult> Get(string email)
         {
-            return await _userService.Get(email);
+            var user = await _userService.Get(email);
+            if (user == null)
+                return NotFound();
+            
+            return new JsonResult(user);
         }
 
         [HttpPost("")]
-        public async Task<IActionResult> Interia([FromBody] CreateUser command)
+        public async Task<IActionResult> Post([FromBody] CreateUser command)
         {
             await _commandDispatcher.Dispatch(command);
-            return Ok("O Boziu");
+            return Created($"users/{command.Email}", null);
         }
 
         

@@ -16,7 +16,7 @@ namespace testarossa.Api.Controllers
         public async Task<IActionResult> Put([FromBody] ChangeUserPassword command)
         {
             await _commandDispatcher.Dispatch(command);
-            return Ok("O pw changed. Hell yeah!");
+            return NoContent();
         }
     }
 }

@@ -1,13 +1,23 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
     <ProjectReference Include="..\testarossa.Core\testarossa.Core.csproj" />
+    <ProjectReference Include="..\testarossa.Api\testarossa.Api.csproj" />
     <ProjectReference Include="..\testarossa.Infrastructure\testarossa.Infrastructure.csproj" />
   </ItemGroup>
   <ItemGroup>
       <PackageReference Include="AutoFac" version="4.9.2"/>
+      <PackageReference Include="Microsoft.AspNetCore.TestHost" version="2.2.0"/>
+      <PackageReference Include="Newtonsoft.Json" version="12.0.2"/>
+      <PackageReference Include="Microsoft.NET.Test.Sdk" version="16.1.1"/>
+      <PackageReference Include="xunit" version="2.4.1"/>
+      <PackageReference Include="xunit.runner.visualstudio" version="2.4.1"/>
+      <PackageReference Include="FluentAssertions" version="4.19.0"/>
+      <PackageReference Include="NSubstitute" version="4.2.0"/>
+      <PackageReference Include="Microsoft.AspNetCore.App"/>
   </ItemGroup>
 </Project>
+

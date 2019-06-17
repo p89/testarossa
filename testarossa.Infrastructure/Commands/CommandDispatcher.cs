@@ -6,10 +6,10 @@ namespace testarossa.Infrastructure.Commands
 {
     public class CommandDispatcher : ICommandDispatcher
     {
-        private readonly IComponentContext _componenContext;
-        public CommandDispatcher (IComponentContext componenContext) 
+        private readonly IComponentContext _componentContext;
+        public CommandDispatcher (IComponentContext componentContext) 
         {
-            _componenContext = componenContext;
+            _componentContext = componentContext;
         }
         public async Task Dispatch<T>(T command) where T : ICommand
         {
@@ -17,7 +17,7 @@ namespace testarossa.Infrastructure.Commands
                 throw new ArgumentNullException(nameof(command),
                 $"Command {typeof(T).Name} cannot be null.");
 
-            var handler = _componenContext.Resolve<ICommandHandler<T>>();
+            var handler = _componentContext.Resolve<ICommandHandler<T>>();
             await handler.Handle(command);
         }
     }
