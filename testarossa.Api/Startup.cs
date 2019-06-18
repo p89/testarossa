@@ -40,7 +40,7 @@ namespace testarossa.Api
 
             var builder = new ContainerBuilder();
             builder.Populate(services);
-            builder.RegisterModule<CommandModule>();
+            builder.RegisterModule(new ContainerModule(Configuration));
             DIContainer = builder.Build();
             return new AutofacServiceProvider(DIContainer);
         }

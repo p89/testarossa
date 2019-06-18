@@ -9,24 +9,14 @@ using Newtonsoft.Json;
 using testarossa.Api;
 using testarossa.Infrastructure.Commands.Users;
 using testarossa.Infrastructure.DTO;
+using testarossa.IntegrationTests.Controllers;
 using Xunit;
 
 namespace testarossa.IntegrationTests
 {
     
-    public class UserControllerTests
+    public class UserControllerTests : ControllerTestsBase
     {
-        private readonly TestServer _server;
-        private readonly HttpClient _client;
-        
-        public UserControllerTests()
-        
-        {
-            _server = new TestServer(new WebHostBuilder()
-                .UseStartup<Startup>());
-            _client = _server.CreateClient();
-        }
-
         [Fact]
         public async Task given_valid_email_user_should_exist()
         {
@@ -40,7 +30,7 @@ namespace testarossa.IntegrationTests
         public async Task given_invalid_email_user_should_not_exist()
         {
             var email = "mail1000@gmail.com";
-            var response = await _client.GetAsync($"users/{email}");
+            var response = await client.GetAsync($"users/{email}");
             Assert.Equal(HttpStatusCode.NotFound, response.StatusCode);
         }
 
@@ -55,7 +45,7 @@ namespace testarossa.IntegrationTests
                 Username = "supername"
             };
             var payload = GetPayload(request);
-            var response = await _client.PostAsync("users", payload);
+            var response = await client.PostAsync("users", payload);
             Assert.Equal(HttpStatusCode.Created, response.StatusCode);
             Assert.Equal($"users/{request.Email}", response.Headers.Location.ToString());
 
@@ -63,15 +53,9 @@ namespace testarossa.IntegrationTests
             Assert.Equal(user.Email, request.Email);
         }
 
-        private StringContent GetPayload(object data)
-        {
-            var json = JsonConvert.SerializeObject(data);
-            return new StringContent(json, Encoding.UTF8, "application/json");
-        }
-
         private async Task<UserDTO> GetUser(string email)
         {
-            var response = await _client.GetAsync($"users/{email}");
+            var response = await client.GetAsync($"users/{email}");
             var responseString = await response.Content.ReadAsStringAsync();
             return JsonConvert.DeserializeObject<UserDTO>(responseString);
         }

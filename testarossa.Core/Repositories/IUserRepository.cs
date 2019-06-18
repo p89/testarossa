@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using testarossa.Core.Domain;
 
-namespace testarossa.Core.Repositories
+namespace testarossa.Core.Repositories 
 {
-    public interface IUserRepository
+    public interface IUserRepository : IRepository
     {
          Task<User> Get(Guid guid);
          Task<User> Get(string email);

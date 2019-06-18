@@ -5,9 +5,9 @@ using testarossa.Infrastructure.Commands.Users;
 
 namespace testarossa.Api.Controllers
 {
-    public class AccountController : ApiControllerBase
+    public class AccountsController : ApiControllerBase
     {
-        public AccountController(ICommandDispatcher commandDispatcher) : base(commandDispatcher)
+        public AccountsController(ICommandDispatcher commandDispatcher) : base(commandDispatcher)
         {
         }
 

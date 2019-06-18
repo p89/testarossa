@@ -5,17 +5,17 @@ using testarossa.Infrastructure.Services;
 
 namespace testarossa.Infrastructure.Handlers.Users
 {
-    public class ChangeUserHandler : ICommandHandler<ChangeUserPassword>
+    public class ChangeUserPasswordHandler : ICommandHandler<ChangeUserPassword>
     {
         private readonly IUserService _userService;
-        public ChangeUserHandler(IUserService userService)
+        public ChangeUserPasswordHandler(IUserService userService)
         {
             _userService = userService;
         }
 
         public async Task Handle(ChangeUserPassword command)
         {
-            throw new System.NotImplementedException();
+            await Task.CompletedTask;
         }
     }
 }
